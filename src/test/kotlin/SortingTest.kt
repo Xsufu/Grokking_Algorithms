@@ -1,8 +1,7 @@
-package sorting
-
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
+import sorting.Sorting
 
 internal class SortingTest {
 

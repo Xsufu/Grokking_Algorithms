@@ -1,4 +1,7 @@
-class BinarySearch {
+package search
+
+// Класс с функциями поиска
+class Search {
 
     /**
      * Функция бинарного поиска в отсортированном списке

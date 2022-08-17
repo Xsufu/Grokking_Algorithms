@@ -42,4 +42,38 @@ class Sorting {
 
         return newList
     }
+
+    /**
+     * Быстрая сортировка (рекурсия)
+     *
+     * @param list неотсортированный целочисленный список
+     * @return отсортированный в порядке возрастания список
+     */
+    fun quickSort(list: List<Int>): List<Int> {
+        // Если массив пустой или состоит из одного элемента, просто возвращаем его (он уже отсортирован)
+        if (list.size < 2)
+            return list
+        else {
+            // Хранение опорного значения (массив на случай его дублирования)
+            val pivot = mutableListOf(list[0])
+            // Хранение элементов, которые меньше опорного
+            val lessList = mutableListOf<Int>()
+            // Хранение элементов, которые больше опорного
+            val greaterList = mutableListOf<Int>()
+
+            // Проходимся по всему списку, начиная с первого элемента
+            for (i in list.slice(1..list.lastIndex)) {
+                // Раскидываем элементы по спискам
+                if (i < pivot[0]) {
+                    lessList.add(i)
+                } else if (i > pivot[0]) {
+                    greaterList.add(i)
+                } else {
+                    pivot.add(i)
+                }
+            }
+            // Вызываем рекурсию в левой и правой частях, опору пихаем в серединку
+            return quickSort(lessList) + pivot + quickSort(greaterList)
+        }
+    }
 }
